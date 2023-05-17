@@ -6,14 +6,14 @@
 using namespace std;
 
 void afisareOptiuni() {
-
+    cout<<endl;
     cout << "A: Afisare Pachete"<<endl;
     cout << "I: Introdu Pachete" << endl;
-    cout << "S: Salvare in fisier" << endl;
     cout << "D: Sterge Pachet" << endl;
     cout << "R: Creaza rezervare" << endl;
     cout << "V: Vizoneaza rezervari" << endl;
     cout << "F: Sterge rezervare" << endl;
+    cout << "S: Salvare in fisier" << endl;
     cout << "X: Inchide Program" << endl;
 }
 
@@ -41,11 +41,12 @@ int main()
             break;
         case 'S':
             adminPachete.salveazaPachete();
+            adminRezervari.salveazaRezervariFisier();
             break;
         case 'D':
             cout << endl << "Introdu id pachet";
             cin >> idPachet;
-            //adminPachete.stergePachet(idPachet,adminRezervari);
+            adminPachete.stergePachet(idPachet,adminRezervari);
             break;
         case 'R':
             adminRezervari.adaugaRezervare(adminPachete);

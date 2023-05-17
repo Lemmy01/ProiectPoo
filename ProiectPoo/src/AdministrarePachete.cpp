@@ -1,10 +1,10 @@
 #include "AdministrarePachete.h"
 #include <iostream>
 #include "Utils.h"
+#include "AdministrareRezervare.h"
+
+
 using namespace std;
-
-
-
 
 
 
@@ -52,8 +52,9 @@ void AdministrarePachete:: afiseazaPachete()
         cout << "Nume: " << pachet.getNume() << "\t";
         cout << "Descriere: " << pachet.getDescriere() << "\t";
         cout << "Destinatie: " << pachet.getDestinatie() << "\t";
-        cout << "Pret: " << pachet.getPret() << "\t";
+        cout << "Pret pe zi: " << pachet.getPret() << "\t";
         cout << "Durata: " << pachet.getDurata() << "\t";
+        cout << "Pret total " << pachet.calculeazaPretTotal() << "\t";
         cout << "Locuri disponibile: " << pachet.getLocuriDisponibile() << "\t";
         cout << endl;
     }
@@ -155,24 +156,23 @@ bool AdministrarePachete::inchiriereLocuri(int locuriOcupate,int idPachet)
 }
 
 
-void AdministrarePachete::stergePachet(int idPachet)
+void AdministrarePachete:: stergePachet(int id,AdministrareRezervare adminRezervari)
 {
-    bool wasDeleted=false;
     for (auto it = pachete.begin(); it != pachete.end(); ++it)
     {
-        if (it->getId() == idPachet)
+        if (it->getId() == id)
         {
             pachete.erase(it);
+            adminRezervari.deleteRezervariCuPachetId(it->getId());
+            for (auto id = it+1; id != pachete.end(); id++)
+            {
+                adminRezervari.updatepachetIdRezervari(id->getId(), id->getId()-1);
+                id->setId(id->getId() - 1);
+            }
             nextId--;
-            wasDeleted=true;
-        }
-        if(it->getId() > idPachet)
-        {
-            it->setId(it->getId() - 1);
+            break;
         }
     }
-    if(!wasDeleted)
-        cout << "Pachetul " << idPachet << " nu a fost gasit.\n";
 }
 
 int AdministrarePachete::nextId = 1;

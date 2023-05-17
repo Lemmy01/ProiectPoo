@@ -11,6 +11,7 @@
 
 using namespace std;
 
+class AdministrareRezervare;
 
 class AdministrarePachete
 {
@@ -26,7 +27,7 @@ public:
 
     void adaugaPachet();
 
-    void stergePachet(int);
+    void stergePachet(int id,AdministrareRezervare adminRezervari);
 
     void afiseazaPachete();
 

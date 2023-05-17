@@ -22,11 +22,11 @@ void AdministrareRezervare::afiseazaRezervari(AdministrarePachete& adminPachete)
     for (const auto& rezervare : rezervari)
     {
         PachetTuristic* pachet= adminPachete.getPachetDupaId(rezervare.getIdPachet());
-        std::cout << "ID rezervare: " << rezervare.getId() << std::endl;
-        std::cout << "Pachet turistic: " << pachet->getNume() << std::endl;
-        std::cout << "Client: " << rezervare.getNumeClient() << std::endl;
-        std::cout << "Numar persoane: " << rezervare.getNumarPersoane() << std::endl;
-        std::cout << "Pret total: " << rezervare.getPretTotal() << std::endl;
+        std::cout << "ID rezervare: " << rezervare.getId() <<"\t";
+        std::cout << "Pachet turistic: " << pachet->getNume() <<"\t";
+        std::cout << "Client: " << rezervare.getNumeClient() << "\t";
+        std::cout << "Numar persoane: " << rezervare.getNumarPersoane() << "\t";
+        std::cout << "Pret total: " << rezervare.getPretTotal() << "\t";
         std::cout << std::endl;
     }
 }
@@ -72,7 +72,7 @@ void AdministrareRezervare::citesteRezervariFisier()
         }
         nextId = rezervari.size() + 1;
         file.close();
-        std::cout << "Pachetele au fost incarcate cu succes din fiaierul " << numeFisier_ << std::endl;
+        std::cout << "Pachetele au fost incarcate cu succes din fisierul " << numeFisier_ << std::endl;
     }
     else
     {
@@ -99,17 +99,17 @@ void AdministrareRezervare::salveazaRezervariFisier() const
                << rezervare.getPretTotal()<<","
                << std::endl;
     }
-
     fisier.close();
+    cout << "Pachetele au fost salvate cu succes in fisierul " << numeFisier_ << std::endl;
+
+
 }
 
 void AdministrareRezervare::adaugaRezervare(AdministrarePachete& adminPachet)
 {
-    int id = nextId++;
+int id ;
     std::string numeClient;
     int idPachet,numarPersoane;
-
-
 
     // Citirea numelui clientului
     std::cout << "Nume client: ";
@@ -127,7 +127,9 @@ void AdministrareRezervare::adaugaRezervare(AdministrarePachete& adminPachet)
     PachetTuristic* pachet = adminPachet.getPachetDupaId(idPachet);
     if(adminPachet.inchiriereLocuri(numarPersoane, idPachet))
     {
+        id = nextId++;
         Rezervare rezervare = Rezervare(id, idPachet, numeClient, numarPersoane,pachet->getPret());
+
         rezervari.push_back(rezervare);
     }
     else

@@ -85,13 +85,7 @@ float PachetTuristic:: calculeazaPretTotal() const
 
     float pretBaza = getPret();
     int durataSejur = getDurata();
-    float pretTotal = pretBaza;
-
-
-    if (durataSejur > 7)
-    {
-        pretTotal = pretBaza* durataSejur * 0.9;  // Reducere de 10% pentru sejururi mai lungi de 7 zile
-    }
+    float pretTotal = pretBaza* durataSejur;
 
     return pretTotal;
 }
