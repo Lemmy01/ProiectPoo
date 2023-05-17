@@ -5,7 +5,8 @@
 
 using namespace std;
 
-class PachetTuristic {
+class PachetTuristic
+{
 private:
     int id;
     string nume;
@@ -17,92 +18,39 @@ private:
 
 public:
 
-    PachetTuristic() : id(0), nume("") ,descriere(""),pret(0),durata(0),locuriDisponibile(0),destinatie(""){}
+    PachetTuristic();
 
-    PachetTuristic(int _id,string n, string d, string dest, float p, int dur, int loc) {
-        id = _id;
-        nume = n;
-        descriere = d;
-        destinatie = dest;
-        pret = p;
-        durata = dur;
-        locuriDisponibile = loc;
-    }
+    PachetTuristic(int,string, string, string, float, int, int ) ;
 
+    string getNume()const;
 
-    string getNume() const{
-        return nume;
-    }
+    string getDescriere()const;
 
-    string getDescriere() const {
-        return descriere;
-    }
+    string getDestinatie()const;
 
-    string getDestinatie() const {
-        return destinatie;
-    }
+    float getPret() const;
 
-    float getPret() const {
-        return pret;
-    }
+    int getDurata()const;
 
-    int getDurata()const {
-        return durata;
-    }
+    int getLocuriDisponibile()const;
 
-    int getLocuriDisponibile() const {
-        return locuriDisponibile;
-    }
+    void setNume(string ) ;
 
+    void setDescriere(string );
 
-    void setNume(string n) {
-        nume = n;
-    }
+    void setDestinatie(string );
 
-    void setDescriere(string d) {
-        descriere = d;
-    }
+    void setPret(float ) ;
 
-    void setDestinatie(string dest) {
-        destinatie = dest;
-    }
+    void setDurata(int );
 
-    void setPret(float p) {
-        pret = p;
-    }
+    void setLocuriDisponibile(int ) ;
 
-    void setDurata(int dur) {
-        durata = dur;
-    }
+    float calculeazaPretTotal() const;
 
-    void setLocuriDisponibile(int loc) {
-        locuriDisponibile = loc;
-    }
+    void setId(int ) ;
 
-    float calculeazaPretTotal() const {
-
-        float pretBaza = getPret();
-        int durataSejur = getDurata();
-        float pretTotal = pretBaza;
-
-
-        if (durataSejur > 7) {
-            pretTotal = pretBaza* durataSejur * 0.9;  // Reducere de 10% pentru sejururi mai lungi de 7 zile
-        }
-
-        return pretTotal;
-    }
-
-
-
-    void setId(int newId) {
-        id = newId;
-    }
-
-    // Metoda de obținere a ID-ului
-    int getId() const {
-        return id;
-    }
+    int getId() const;
 };
 
 #endif // PACHETTURISTIC_H

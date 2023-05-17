@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1684351553 source:c:\users\vasil\desktop\proiectpoo\proiectpoo\main.cpp
+	<iostream>
+	"PachetTuristic.h"
+
+1684351493 source:c:\users\vasil\desktop\proiectpoo\proiectpoo\src\pachetturistic.cpp
+	"PachetTuristic.h"
+
+1684352332 c:\users\vasil\desktop\proiectpoo\proiectpoo\include\pachetturistic.h
+	<iostream>
+
+1684352119 source:c:\users\vasil\desktop\proiectpoo\proiectpoo\src\administrarepachete.cpp
+	"AdministrarePachete.h"
+	<iostream>
+
+1684351825 c:\users\vasil\desktop\proiectpoo\proiectpoo\include\administrarepachete.h
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	"PachetTuristic.h"
+

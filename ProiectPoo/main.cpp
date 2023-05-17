@@ -1,9 +1,9 @@
 #include <iostream>
-
+#include "PachetTuristic.h"
 using namespace std;
 
 int main()
-{
-    cout << "Hello world!" << endl;
+{PachetTuristic p;
+    cout << p.getId() << endl;
     return 0;
 }
