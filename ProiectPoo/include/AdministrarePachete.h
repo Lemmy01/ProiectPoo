@@ -12,21 +12,24 @@
 using namespace std;
 
 
-class AdministrarePachete {
+class AdministrarePachete
+{
     static int nextId;
 private:
     vector<PachetTuristic> pachete;
     string numeFisier_;
 
-
 public:
     AdministrarePachete(const std::string&);
+
     PachetTuristic citestePachet();
 
     void adaugaPachet();
 
+    void stergePachet(int);
 
     void afiseazaPachete();
+
     void salveazaPachete() ;
 
     void citestePachete() ;
@@ -35,7 +38,7 @@ public:
 
     bool inchiriereLocuri(int,int);
 };
-int AdministrarePachete::nextId = 1;
+
 
 
 

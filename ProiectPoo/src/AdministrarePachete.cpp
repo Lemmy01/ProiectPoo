@@ -176,3 +176,24 @@ bool AdministrarePachete::inchiriereLocuri(int locuriOcupate,int idPachet)
 }
 
 
+void AdministrarePachete::stergePachet(int idPachet)
+{
+    bool wasDeleted=false;
+    for (auto it = pachete.begin(); it != pachete.end(); ++it)
+    {
+        if (it->getId() == idPachet)
+        {
+            pachete.erase(it);
+            nextId--;
+            wasDeleted=true;
+        }
+        if(it->getId() > idPachet)
+        {
+            it->setId(it->getId() - 1);
+        }
+    }
+    if(!wasDeleted)
+        cout << "Pachetul " << idPachet << " nu a fost gasit.\n";
+}
+
+int AdministrarePachete::nextId = 1;
