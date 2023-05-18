@@ -27,7 +27,7 @@ public:
 
     void adaugaPachet();
 
-    void stergePachet(int id,AdministrareRezervare adminRezervari);
+    void stergePachet(int,AdministrareRezervare&,AdministrarePachete&);
 
     void afiseazaPachete();
 
@@ -38,6 +38,8 @@ public:
     PachetTuristic* getPachetDupaId(int);
 
     bool inchiriereLocuri(int,int);
+
+    void completeazaLocuri(int,int);
 };
 
 

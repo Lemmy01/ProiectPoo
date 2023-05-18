@@ -1,7 +1,8 @@
-#include "AdministrarePachete.h"
+
 #include <iostream>
-#include "Utils.h"
+#include "AdministrarePachete.h"
 #include "AdministrareRezervare.h"
+#include "Utils.h"
 
 
 using namespace std;
@@ -156,23 +157,42 @@ bool AdministrarePachete::inchiriereLocuri(int locuriOcupate,int idPachet)
 }
 
 
-void AdministrarePachete:: stergePachet(int id,AdministrareRezervare adminRezervari)
+void AdministrarePachete::stergePachet(int id,AdministrareRezervare& adminRezervari,AdministrarePachete& adminPachete)
 {
+    bool wasDeleted=false;
     for (auto it = pachete.begin(); it != pachete.end(); ++it)
     {
         if (it->getId() == id)
         {
-            pachete.erase(it);
-            adminRezervari.deleteRezervariCuPachetId(it->getId());
-            for (auto id = it+1; id != pachete.end(); id++)
-            {
-                adminRezervari.updatepachetIdRezervari(id->getId(), id->getId()-1);
-                id->setId(id->getId() - 1);
-            }
+
+            adminRezervari.deleteRezervariCuPachetId(it->getId(),adminPachete);
             nextId--;
+            wasDeleted=true;
+            pachete.erase(it);
             break;
         }
     }
+    for (auto it = pachete.begin(); it != pachete.end(); ++it)
+    {
+        if(it->getId() > id)
+        {
+
+            adminRezervari.updatepachetIdRezervari(it->getId(), it->getId()-1);
+            it->setId(it->getId() - 1);
+        }
+    }
+
+
+    if(!wasDeleted)
+    {
+        cout<<"Pachetul cu id "<<id<<" nu a fost gasit";
+    }
 }
+
+  void AdministrarePachete::completeazaLocuri(int locuriDeAdaugat,int idPachet){
+       auto pachet = getPachetDupaId(idPachet);
+       pachet->setLocuriDisponibile(pachet->getLocuriDisponibile()+locuriDeAdaugat);
+  }
+
 
 int AdministrarePachete::nextId = 1;

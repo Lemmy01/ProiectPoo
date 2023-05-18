@@ -36,9 +36,9 @@ std::vector<Rezervare> getRezervariByPachetId(int ) const ;
 
 void updatepachetIdRezervari(int, int );
 
-void deleteRezervariCuPachetId(int ) ;
+void deleteRezervariCuPachetId(int ,AdministrarePachete&) ;
 
-void stergeRezervare(int ) ;
+void stergeRezervare(int ,AdministrarePachete&) ;
 
 };
 

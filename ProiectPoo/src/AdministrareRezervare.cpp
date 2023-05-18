@@ -1,13 +1,10 @@
-#include "AdministrareRezervare.h"
-#include "AdministrarePachete.h"
-#include "Utils.h"
-
 #include <iostream>
 #include <vector>
 #include <fstream>
 
-
-
+#include "AdministrarePachete.h"
+#include "AdministrareRezervare.h"
+#include "Utils.h"
 
 AdministrareRezervare::AdministrareRezervare(const std::string& numeFisier) : numeFisier_(numeFisier)
 {
@@ -107,7 +104,7 @@ void AdministrareRezervare::salveazaRezervariFisier() const
 
 void AdministrareRezervare::adaugaRezervare(AdministrarePachete& adminPachet)
 {
-int id ;
+    int id ;
     std::string numeClient;
     int idPachet,numarPersoane;
 
@@ -168,31 +165,40 @@ void AdministrareRezervare::updatepachetIdRezervari(int oldId, int newId)
 
 }
 
-void AdministrareRezervare::deleteRezervariCuPachetId(int idPachet)
+void AdministrareRezervare::deleteRezervariCuPachetId(int idPachet,AdministrarePachete& adminPachete)
 {
-    for (int i = 0; i < rezervari.size(); i++)
+    for (auto it = rezervari.begin(); it != rezervari.end(); ++it)
     {
-        if (rezervari[i].getIdPachet() == idPachet)
+        if (it->getIdPachet() == idPachet)
         {
-            rezervari.erase(rezervari.begin() + i);
+            stergeRezervare(it->getId(),adminPachete);
+            break;
         }
     }
 }
 
-void AdministrareRezervare::stergeRezervare(int id)
+void AdministrareRezervare::stergeRezervare(int id,AdministrarePachete& adminPachete)
 {
     bool rezervareGasita = false;
     for (auto it = rezervari.begin(); it != rezervari.end(); ++it)
     {
         if (it->getId() == id)
         {
+            adminPachete.completeazaLocuri(it->getNumarPersoane(),it->getIdPachet());
             rezervari.erase(it);
             std::cout << "Rezervarea cu ID-ul " << id << " a fost stearsa." << std::endl;
             rezervareGasita = true;
-            break;
+         break;
+        }
+
+    }
+    for (auto it = rezervari.begin(); it != rezervari.end(); ++it)
+    {
+        if(it->getId() > id)
+        {
+            it->setId(it->getId() - 1);
         }
     }
-
     if (!rezervareGasita)
     {
         std::cout << "Rezervarea cu ID-ul " << id << " nu a fost gasita." << std::endl;

@@ -44,9 +44,9 @@ int main()
             adminRezervari.salveazaRezervariFisier();
             break;
         case 'D':
-            cout << endl << "Introdu id pachet";
+            cout << endl << "Introdu id pachet:";
             cin >> idPachet;
-            adminPachete.stergePachet(idPachet,adminRezervari);
+            adminPachete.stergePachet(idPachet,adminRezervari,adminPachete);
             break;
         case 'R':
             adminRezervari.adaugaRezervare(adminPachete);
@@ -57,7 +57,7 @@ int main()
         case 'F':
             cout << "Introdu id Rezervare";
             cin >> idRezervare;
-            adminRezervari.stergeRezervare(idRezervare);
+            adminRezervari.stergeRezervare(idRezervare,adminPachete);
             break;
         case 'X':
             exit(0);

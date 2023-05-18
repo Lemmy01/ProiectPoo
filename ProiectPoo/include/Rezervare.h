@@ -1,7 +1,7 @@
 #ifndef REZERVARE_H
 #define REZERVARE_H
 
-#include "PachetTuristic.h"
+
 #include <string>
 #include <iostream>
 
