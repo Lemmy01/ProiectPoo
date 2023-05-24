@@ -25,11 +25,9 @@ public:
 
     string getNumeClient() const ;
 
-
     int getNumarPersoane() const ;
 
     float getPretTotal() const ;
-
 
     void setId(int ) ;
 
