@@ -18,7 +18,7 @@ class AdministrareRezervare {
 private:
     std::vector<Rezervare> rezervari;
 
-    string numeFisier_;
+    string numeFisier;
 public:
 AdministrareRezervare(const std::string& ) ;
 

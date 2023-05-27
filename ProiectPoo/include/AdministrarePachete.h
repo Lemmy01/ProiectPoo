@@ -18,7 +18,7 @@ class AdministrarePachete
     static int nextId;
 private:
     vector<PachetTuristic> pachete;
-    string numeFisier_;
+    string numeFisier;
 
 public:
     AdministrarePachete(const std::string&);
@@ -27,7 +27,7 @@ public:
 
     void adaugaPachet();
 
-    void stergePachet(int,AdministrareRezervare&,AdministrarePachete&);
+    void stergePachet(int,AdministrareRezervare&);
 
     void afiseazaPachete();
 

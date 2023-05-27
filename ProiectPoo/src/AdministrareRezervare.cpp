@@ -6,7 +6,7 @@
 #include "AdministrareRezervare.h"
 #include "Utils.h"
 
-AdministrareRezervare::AdministrareRezervare(const std::string& numeFisier) : numeFisier_(numeFisier)
+AdministrareRezervare::AdministrareRezervare(const std::string& _numeFisier) : numeFisier(_numeFisier)
 {
 }
 
@@ -31,7 +31,7 @@ void AdministrareRezervare::afiseazaRezervari(AdministrarePachete& adminPachete)
 
 void AdministrareRezervare::citesteRezervariFisier()
 {
-    ifstream file(numeFisier_);
+    ifstream file(numeFisier);
 
     if (file.is_open())
     {
@@ -69,7 +69,7 @@ void AdministrareRezervare::citesteRezervariFisier()
         }
         nextId = rezervari.size() + 1;
         file.close();
-        std::cout << "Pachetele au fost incarcate cu succes din fisierul " << numeFisier_ << std::endl;
+        std::cout << "Pachetele au fost incarcate cu succes din fisierul " << numeFisier << std::endl;
     }
     else
     {
@@ -79,7 +79,7 @@ void AdministrareRezervare::citesteRezervariFisier()
 
 void AdministrareRezervare::salveazaRezervariFisier() const
 {
-    std::ofstream fisier(numeFisier_);
+    std::ofstream fisier(numeFisier);
 
     if (!fisier)
     {
@@ -97,7 +97,7 @@ void AdministrareRezervare::salveazaRezervariFisier() const
                << std::endl;
     }
     fisier.close();
-    cout << "Pachetele au fost salvate cu succes in fisierul " << numeFisier_ << std::endl;
+    cout << "Pachetele au fost salvate cu succes in fisierul " << numeFisier << std::endl;
 
 
 }

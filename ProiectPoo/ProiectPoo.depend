@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1684406014 source:c:\users\vasil\desktop\proiectpoo\proiectpoo\main.cpp
+1685187691 source:c:\users\vasil\desktop\proiectpoo\proiectpoo\main.cpp
 	<iostream>
 	"PachetTuristic.h"
 	"AdministrarePachete.h"
@@ -12,13 +12,13 @@
 1684404053 c:\users\vasil\desktop\proiectpoo\proiectpoo\include\pachetturistic.h
 	<iostream>
 
-1684405987 source:c:\users\vasil\desktop\proiectpoo\proiectpoo\src\administrarepachete.cpp
+1685187908 source:c:\users\vasil\desktop\proiectpoo\proiectpoo\src\administrarepachete.cpp
 	<iostream>
 	"AdministrarePachete.h"
 	"AdministrareRezervare.h"
 	"Utils.h"
 
-1684406004 c:\users\vasil\desktop\proiectpoo\proiectpoo\include\administrarepachete.h
+1685187686 c:\users\vasil\desktop\proiectpoo\proiectpoo\include\administrarepachete.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -36,7 +36,7 @@
 	<iostream>
 	<vector>
 
-1684406102 source:c:\users\vasil\desktop\proiectpoo\proiectpoo\src\administrarerezervare.cpp
+1685186591 source:c:\users\vasil\desktop\proiectpoo\proiectpoo\src\administrarerezervare.cpp
 	<iostream>
 	<vector>
 	<fstream>
@@ -44,7 +44,7 @@
 	"AdministrareRezervare.h"
 	"Utils.h"
 
-1684405702 c:\users\vasil\desktop\proiectpoo\proiectpoo\include\administrarerezervare.h
+1685187686 c:\users\vasil\desktop\proiectpoo\proiectpoo\include\administrarerezervare.h
 	<iostream>
 	<vector>
 	<fstream>

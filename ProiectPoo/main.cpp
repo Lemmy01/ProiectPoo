@@ -46,7 +46,7 @@ int main()
         case 'D':
             cout << endl << "Introdu id pachet:";
             cin >> idPachet;
-            adminPachete.stergePachet(idPachet,adminRezervari,adminPachete);
+            adminPachete.stergePachet(idPachet,adminRezervari);
             break;
         case 'R':
             adminRezervari.adaugaRezervare(adminPachete);
@@ -63,7 +63,11 @@ int main()
             exit(0);
             break;
         }
-
+   //   cout<<endl<<"Apasa enter pentru a continua";
+   // fflush(stdin);
+   // getchar();
+   //  fflush(stdin);
+   // system("cls");
     }
         while (1);
     return 0;

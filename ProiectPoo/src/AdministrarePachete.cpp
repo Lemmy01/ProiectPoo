@@ -9,7 +9,7 @@ using namespace std;
 
 
 
-AdministrarePachete:: AdministrarePachete(const std::string& numeFisier) : numeFisier_(numeFisier)
+AdministrarePachete:: AdministrarePachete(const std::string& _numeFisier) : numeFisier(_numeFisier)
 {
 }
 PachetTuristic AdministrarePachete::  citestePachet()
@@ -63,7 +63,7 @@ void AdministrarePachete:: afiseazaPachete()
 
 void AdministrarePachete:: salveazaPachete()
 {
-    std::ofstream file(numeFisier_);
+    std::ofstream file(numeFisier);
 
     if (file.is_open())
     {
@@ -74,7 +74,7 @@ void AdministrarePachete:: salveazaPachete()
         }
 
         file.close();
-        cout << "Pachetele au fost salvate cu succes in fisierul " << numeFisier_ << std::endl;
+        cout << "Pachetele au fost salvate cu succes in fisierul " << numeFisier << std::endl;
     }
     else
     {
@@ -84,7 +84,7 @@ void AdministrarePachete:: salveazaPachete()
 
 void AdministrarePachete:: citestePachete()
 {
-    ifstream file(numeFisier_);
+    ifstream file(numeFisier);
 
     if (file.is_open())
     {
@@ -122,7 +122,7 @@ void AdministrarePachete:: citestePachete()
         }
         nextId = pachete.size() + 1;
         file.close();
-        std::cout << "Pachetele au fost incarcate cu succes din fiaierul " << numeFisier_ << std::endl;
+        std::cout << "Pachetele au fost incarcate cu succes din fisierul " << numeFisier << std::endl;
     }
     else
     {
@@ -156,8 +156,7 @@ bool AdministrarePachete::inchiriereLocuri(int locuriOcupate,int idPachet)
     }
 }
 
-
-void AdministrarePachete::stergePachet(int id,AdministrareRezervare& adminRezervari,AdministrarePachete& adminPachete)
+void AdministrarePachete::stergePachet(int id,AdministrareRezervare& adminRezervari)
 {
     bool wasDeleted=false;
     for (auto it = pachete.begin(); it != pachete.end(); ++it)
@@ -165,7 +164,7 @@ void AdministrarePachete::stergePachet(int id,AdministrareRezervare& adminRezerv
         if (it->getId() == id)
         {
 
-            adminRezervari.deleteRezervariCuPachetId(it->getId(),adminPachete);
+            adminRezervari.deleteRezervariCuPachetId(it->getId(),*this);
             nextId--;
             wasDeleted=true;
             pachete.erase(it);
