@@ -19,12 +19,10 @@ void AdministrareRezervare::afiseazaRezervari(AdministrarePachete& adminPachete)
     for (const auto& rezervare : rezervari)
     {
         PachetTuristic* pachet= adminPachete.getPachetDupaId(rezervare.getIdPachet());
-        std::cout << "ID rezervare: " << rezervare.getId() <<"\t";
-        std::cout << "Pachet turistic: " << pachet->getNume() <<"\t";
-        std::cout << "Client: " << rezervare.getNumeClient() << "\t";
-        std::cout << "Numar persoane: " << rezervare.getNumarPersoane() << "\t";
-        std::cout << "Pret total: " << rezervare.getPretTotal() << "\t";
-        std::cout << std::endl;
+
+        cout<<rezervare<<"\t";
+        cout << "Pachet turistic: " << pachet->getNume();
+        cout << std::endl;
     }
 }
 
@@ -103,29 +101,15 @@ void AdministrareRezervare::salveazaRezervariFisier() const
 }
 
 void AdministrareRezervare::adaugaRezervare(AdministrarePachete& adminPachet)
-{
-    int id ;
-    std::string numeClient;
-    int idPachet,numarPersoane;
+{Rezervare rezervare=Rezervare();
+  cin>>rezervare;
 
-    // Citirea numelui clientului
-    std::cout << "Nume client: ";
-
-    cin >> numeClient;
-
-
-    std::cout << "Id Pachet: ";
-    cin >> idPachet;
-
-    std::cout << "Numar de persoane ";
-    cin >> numarPersoane;
-
-
-    PachetTuristic* pachet = adminPachet.getPachetDupaId(idPachet);
-    if(adminPachet.inchiriereLocuri(numarPersoane, idPachet))
+    PachetTuristic* pachet = adminPachet.getPachetDupaId(rezervare.getIdPachet());
+    if(adminPachet.inchiriereLocuri(rezervare.getNumarPersoane(), rezervare.getIdPachet()))
     {
-        id = nextId++;
-        Rezervare rezervare = Rezervare(id, idPachet, numeClient, numarPersoane,pachet->getPret());
+
+       rezervare.setId(nextId++);
+       rezervare.setpretTotal(pachet->calculeazaPretTotal());
 
         rezervari.push_back(rezervare);
     }

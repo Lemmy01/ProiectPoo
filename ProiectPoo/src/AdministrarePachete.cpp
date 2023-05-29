@@ -12,51 +12,21 @@ using namespace std;
 AdministrarePachete:: AdministrarePachete(const std::string& _numeFisier) : numeFisier(_numeFisier)
 {
 }
-PachetTuristic AdministrarePachete::  citestePachet()
-{
-    string nume, destinatie, descriere;
-    int locuriDisponibile, durata;
-    float pret;
-
-    std::cout << "Introduceti numele pachetului: ";
-    std::cin >> nume;
-
-    std::cout << "Introduceti destinatia: ";
-    std::cin >> destinatie;
-
-    std::cout << "Introduceti descrierea: ";
-    std::cin >> descriere;
-
-    std::cout << "Introduceti durata sejurului (in zile): ";
-    std::cin >> durata;
-
-    std::cout << "Introduceti pretul: ";
-    std::cin >> pret;
-
-    std::cout << "Introduceti numarul total de locuri: ";
-    std::cin >> locuriDisponibile;
-    int id = nextId++;
-
-    return PachetTuristic(id,nume,descriere,destinatie,pret,durata,locuriDisponibile);
-}
 
 void AdministrarePachete::adaugaPachet()
 {
-    pachete.push_back(citestePachet());
+    PachetTuristic pachet=PachetTuristic();
+    cin>>pachet;
+    int id=nextId++;
+    pachet.setId(id);
+    pachete.push_back(pachet);
 }
 
 void AdministrarePachete:: afiseazaPachete()
 {
     for (const auto& pachet : pachete)
     {
-        cout << "Id: " << pachet.getId() << "\t";
-        cout << "Nume: " << pachet.getNume() << "\t";
-        cout << "Descriere: " << pachet.getDescriere() << "\t";
-        cout << "Destinatie: " << pachet.getDestinatie() << "\t";
-        cout << "Pret pe zi: " << pachet.getPret() << "\t";
-        cout << "Durata: " << pachet.getDurata() << "\t";
-        cout << "Pret total " << pachet.calculeazaPretTotal() << "\t";
-        cout << "Locuri disponibile: " << pachet.getLocuriDisponibile() << "\t";
+        cout<<pachet;
         cout << endl;
     }
 }

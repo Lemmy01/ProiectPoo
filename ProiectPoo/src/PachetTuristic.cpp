@@ -5,7 +5,7 @@
 using namespace std;
 
 
-PachetTuristic:: PachetTuristic() : id(0), nume(""),descriere(""),pret(0),durata(0),locuriDisponibile(0),destinatie("") {}
+PachetTuristic:: PachetTuristic() : id(0), nume("Necunoscut"),descriere("Necunoscut"),pret(0),durata(0),locuriDisponibile(0),destinatie("Necunoscut") {}
 
 PachetTuristic::  PachetTuristic(int _id,string n, string d, string dest, float p, int dur, int loc)
 {
@@ -101,4 +101,41 @@ void PachetTuristic:: setId(int newId)
 int PachetTuristic:: getId() const
 {
     return id;
+}
+
+istream& operator>>(istream& is, PachetTuristic& pachet) {
+
+
+    std::cout << "Introduceti numele pachetului: ";
+    std::cin >> pachet.nume;
+
+    std::cout << "Introduceti destinatia: ";
+    std::cin >> pachet.destinatie;
+
+    std::cout << "Introduceti descrierea: ";
+    std::cin >> pachet.descriere;
+
+    std::cout << "Introduceti durata sejurului (in zile): ";
+    std::cin >>pachet. durata;
+
+    std::cout << "Introduceti pretul(per zi): ";
+    std::cin >> pachet.pret;
+
+    std::cout << "Introduceti numarul total de locuri: ";
+    std::cin >> pachet.locuriDisponibile;
+
+        return is;
+    }
+
+std::ostream& operator<<(std::ostream& os, const PachetTuristic& pachet) {
+        os << "Id: " << pachet.getId() << "\t";
+        os << "Nume: " << pachet.getNume() << "\t";
+        os << "Descriere: " << pachet.getDescriere() << "\t";
+        os << "Destinatie: " << pachet.getDestinatie() << "\t";
+        os << "Pret pe zi: " << pachet.getPret() << "\t";
+        os << "Durata: " << pachet.getDurata() << "\t";
+        os << "Pret total " << pachet.calculeazaPretTotal() << "\t";
+        os << "Locuri disponibile: " << pachet.getLocuriDisponibile() << "\t";
+
+    return os;
 }

@@ -16,8 +16,12 @@ private:
     int numarPersoane;
     float pretTotal;
 public:
+    Rezervare();
+
     Rezervare(const int,const int,const string&,int,float);
+
     ~Rezervare();
+
     // metode de acces
     int getId() const ;
 
@@ -29,10 +33,15 @@ public:
 
     float getPretTotal() const ;
 
-    void setId(int ) ;
+    void setId(int);
 
-    void setPachetId(int ) ;
+    void setPachetId(int);
 
+    void setpretTotal(float );
+
+   friend istream& operator>>(istream& is, Rezervare& rezervare);
+
+   friend ostream& operator<<(ostream& os, const Rezervare& rezervare);
 };
 
 

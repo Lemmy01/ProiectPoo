@@ -51,6 +51,10 @@ public:
     void setId(int ) ;
 
     int getId() const;
+
+    friend std::istream& operator>>(std::istream& is, PachetTuristic& pachet) ;
+
+    friend std::ostream& operator<<(std::ostream& os, const PachetTuristic& pachet);
 };
 
 #endif // PACHETTURISTIC_H
