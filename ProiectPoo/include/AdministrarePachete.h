@@ -40,6 +40,8 @@ public:
     bool inchiriereLocuri(int,int);
 
     void completeazaLocuri(int,int);
+
+   std::vector<PachetTuristic*> cautaPachetDupaNume(const std::string& numePachet);
 };
 
 

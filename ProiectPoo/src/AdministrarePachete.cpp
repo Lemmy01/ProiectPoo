@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "AdministrarePachete.h"
 #include "AdministrareRezervare.h"
@@ -22,12 +21,48 @@ void AdministrarePachete::adaugaPachet()
     pachete.push_back(pachet);
 }
 
-void AdministrarePachete:: afiseazaPachete()
+void AdministrarePachete::afiseazaPachete()
 {
-    for (const auto& pachet : pachete)
+    int pachetePePagina = 100;
+    int totalPachete = pachete.size();
+    int pagini = (totalPachete + pachetePePagina - 1) / pachetePePagina;
+
+    if (totalPachete == 0)
     {
-        cout<<pachet;
+        cout << "Nu exista pachete de afisat." << endl;
+        return;
+    }
+
+    for (int pagina = 1; pagina <= pagini; ++pagina)
+    {
+        cout << "----- Pagina " << pagina << " -----" << endl;
+
+        int start = (pagina - 1) * pachetePePagina;
+        int end = min(start + pachetePePagina, totalPachete);
+
+        for (int i = start; i < end; ++i)
+        {
+            cout << pachete[i] << endl;
+        }
+
         cout << endl;
+
+        // Pauză pentru a permite utilizatorului să citească pagina curentă
+        if (pagina < pagini)
+        {
+            cout << "Apasati ENTER pentru a continua sau 'q' pentru a iesi din afisare..." << endl;
+
+            fflush(stdin);
+            string input;
+
+            getline(cin, input);
+
+            if (input == "q")
+            {
+                cout << "Iesire din afisare." << endl;
+                return;
+            }
+        }
     }
 }
 
@@ -158,10 +193,23 @@ void AdministrarePachete::stergePachet(int id,AdministrareRezervare& adminRezerv
     }
 }
 
-  void AdministrarePachete::completeazaLocuri(int locuriDeAdaugat,int idPachet){
-       auto pachet = getPachetDupaId(idPachet);
-       pachet->setLocuriDisponibile(pachet->getLocuriDisponibile()+locuriDeAdaugat);
-  }
+void AdministrarePachete::completeazaLocuri(int locuriDeAdaugat,int idPachet)
+{
+    auto pachet = getPachetDupaId(idPachet);
+    pachet->setLocuriDisponibile(pachet->getLocuriDisponibile()+locuriDeAdaugat);
+}
+
+std::vector<PachetTuristic*> AdministrarePachete::cautaPachetDupaNume(const std::string& numePachet) {
+    std::vector<PachetTuristic*> pacheteGasite;
+
+    for (auto& pachet : pachete) {
+        if (pachet.getNume() == numePachet) {
+            pacheteGasite.push_back(&pachet);
+        }
+    }
+
+    return pacheteGasite;
+}
 
 
 int AdministrarePachete::nextId = 1;

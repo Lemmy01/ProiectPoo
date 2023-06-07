@@ -189,5 +189,14 @@ void AdministrareRezervare::stergeRezervare(int id,AdministrarePachete& adminPac
     }
 }
 
+Rezervare* AdministrareRezervare::cautaPachetDupaId(int idRezervare) {
+    for (auto& rezervare : rezervari) {
+        if (rezervare.getId() == idRezervare) {
+            return &rezervare;
+        }
+    }
+    return nullptr;
+}
+
 
 int AdministrareRezervare::nextId = 1;

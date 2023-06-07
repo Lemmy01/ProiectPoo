@@ -40,6 +40,7 @@ void deleteRezervariCuPachetId(int ,AdministrarePachete&) ;
 
 void stergeRezervare(int ,AdministrarePachete&) ;
 
+Rezervare* cautaPachetDupaId(int idRezervare);
 };
 
 

@@ -112,3 +112,57 @@
 	"AdministrareRezervare.h"
 	"Utils.h"
 
+1686151657 source:c:\users\lemmy\desktop\proiectpoo\proiectpoo\main.cpp
+	<iostream>
+	"PachetTuristic.h"
+	"AdministrarePachete.h"
+	"AdministrareRezervare.h"
+
+1685346622 c:\users\lemmy\desktop\proiectpoo\proiectpoo\include\pachetturistic.h
+	<iostream>
+
+1686149962 c:\users\lemmy\desktop\proiectpoo\proiectpoo\include\administrarepachete.h
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	"PachetTuristic.h"
+
+1686151691 c:\users\lemmy\desktop\proiectpoo\proiectpoo\include\administrarerezervare.h
+	<iostream>
+	<vector>
+	<fstream>
+	"Rezervare.h"
+
+1685349082 c:\users\lemmy\desktop\proiectpoo\proiectpoo\include\rezervare.h
+	<string>
+	<iostream>
+
+1686151705 source:c:\users\lemmy\desktop\proiectpoo\proiectpoo\src\administrarerezervare.cpp
+	<iostream>
+	<vector>
+	<fstream>
+	"AdministrarePachete.h"
+	"AdministrareRezervare.h"
+	"Utils.h"
+
+1685344668 c:\users\lemmy\desktop\proiectpoo\proiectpoo\include\utils.h
+	<iostream>
+	<vector>
+
+1685349011 source:c:\users\lemmy\desktop\proiectpoo\proiectpoo\src\pachetturistic.cpp
+	"PachetTuristic.h"
+	<iostream>
+
+1685349149 source:c:\users\lemmy\desktop\proiectpoo\proiectpoo\src\rezervare.cpp
+	"Rezervare.h"
+
+1685344668 source:c:\users\lemmy\desktop\proiectpoo\proiectpoo\src\utils.cpp
+	"Utils.h"
+
+1686149940 source:c:\users\lemmy\desktop\proiectpoo\proiectpoo\src\administrarepachete.cpp
+	<iostream>
+	"AdministrarePachete.h"
+	"AdministrareRezervare.h"
+	"Utils.h"
+
